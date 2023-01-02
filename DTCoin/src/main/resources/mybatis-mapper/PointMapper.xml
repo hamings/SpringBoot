@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dtcoin.mapper.PointMapper">
+    <insert id="insertPoint" parameterType="HashMap">
+        INSERT INTO payment
+            (
+            email,
+            amount,
+            uid
+                )
+        VALUES
+            (
+             #{email},
+             #{amount},
+             #{uid}
+                )
+    </insert>
+    <select id="selectPoint" parameterType="String" resultType="HashMap">
+        SELECT
+                id,
+                amount,
+                DATE_FORMAT(indate,'%Y-%m-%d %H:%i') indate
+        FROM payment
+        WHERE email = #{email}
+    </select>
+
+</mapper>

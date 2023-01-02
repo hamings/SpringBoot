@@ -231,13 +231,22 @@
                 dataType: "json",
                 complete: function (res) {
                     let resp=res.responseText;
+                    if(isNaN(resp)) {
+                        let str = "<h1 class='row' style='font-size: 30px;'>과거 자산 : ";
+                        str += 0;
 
-                    let str="<h1 class='row' style='font-size: 30px;'>과거 자산 : ";
-                        str+= resp;
+
+                        str += "원</h1>";
+                        $("#hadBalance").html(str);
+                    }else{
+                        let str = "<h1 class='row' style='font-size: 30px;'>과거 자산 : ";
+                        str += resp;
 
 
-                    str+="원</h1>";
-                    $("#hadBalance").html(str);
+                        str += "원</h1>";
+                        $("#hadBalance").html(str);
+
+                    }
                 }
             });
             $.ajax({
