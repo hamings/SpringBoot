@@ -11,4 +11,6 @@ public interface PointMapper {
     public int insertPoint(HashMap<String,Object> params);
 
     public ArrayList<HashMap<String,Object>> selectPoint(String email);
+
+    public double checkBalance(String email);
 }

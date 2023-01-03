@@ -20,4 +20,8 @@ public class PointService {
     public ArrayList<HashMap<String,Object>> selectPoint(String email){
         return pr.selectPoint(email);
     }
+
+    public double checkBalance(String email){
+        return pr.checkBalance(email);
+    }
 }

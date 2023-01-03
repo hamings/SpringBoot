@@ -24,5 +24,13 @@
         FROM payment
         WHERE email = #{email}
     </select>
+    <select id="checkBalance" parameterType="String" resultType="double">
+        SELECT
+
+            IFNULL((select sum(amount) from payment where email=#{email}),0) -
+            IFNULL((select sum(total) from buy where email=#{email}),0)
+        FROM
+            dual
+    </select>
 
 </mapper>
