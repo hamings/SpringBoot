@@ -30,4 +30,33 @@
         WHERE
             email = #{email} AND password = #{password}
     </select>
+    <select id="hadBalance" resultType="int">
+        SELECT
+            IFNULL(sum(amount),0)
+        FROM
+            payment
+        WHERE
+            email = #{email}
+    </select>
+    <select id="havingBalance" parameterType="String" resultType="HashMap">
+        SELECT
+            coinId,
+            IFNULL(sum(amount), 0) smount
+        FROM
+            buy
+        WHERE
+            email = #{email}
+        GROUP By
+            coinId
+
+
+    </select>
+    <select id="moneyBalance" parameterType="String" resultType="int">
+        SELECT
+            IFNULL((select sum(amount) from payment where email = #{email}),0)-
+            IFNULL((select sum(total) from buy where email = #{email}),0)
+        FROM
+            dual
+
+    </select>
 </mapper>
