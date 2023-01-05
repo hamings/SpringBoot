@@ -35,28 +35,20 @@ public class MemberController {
     }
     @GetMapping("/hadBalance")
     public @ResponseBody int hadBalance(HttpSession session){
-        if(session.getAttribute("email")!=null){
             String email = String.valueOf(session.getAttribute("email"));
             return ms.hadBalance(email);
-        }
-        return 0;
     }
+
     @GetMapping("/havingBalance")
     public @ResponseBody ArrayList<HashMap<String,Object>> havingBalance(HttpSession session){
-        if(session.getAttribute("email")!=null){
             String email = String.valueOf(session.getAttribute("email"));
             return ms.havingBalance(email);
-        }
-        return null;
     }
 
     @GetMapping("/moneyBalance")
     public @ResponseBody int moneyBalance(HttpSession session){
-        if(session.getAttribute("email")!=null){
             String email = String.valueOf(session.getAttribute("email"));
             return ms.moneyBalance(email);
-        }
-        return 0;
     }
 
 }

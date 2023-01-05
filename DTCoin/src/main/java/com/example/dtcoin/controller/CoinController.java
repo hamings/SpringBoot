@@ -20,22 +20,17 @@ public class CoinController {
 
     @PostMapping("/buyCoin")
     public String insertBuy(@RequestParam HashMap<String,Object> params, HttpSession session){
-        if(session.getAttribute("email")!=null){
             String email = String.valueOf(session.getAttribute("email"));
             params.put("email",email);
             cs.insertBuy(params);
             return "success";
-        }
-        return "failed";
+
     }
 
     @GetMapping("/buyList")
     public ArrayList<HashMap<String,Object>> buyList(HttpSession session){
-        if(session.getAttribute("email")!=null){
             String email = String.valueOf(session.getAttribute("email"));
             return cs.selectBuy(email);
-        }
-        return null;
     }
 
 }
