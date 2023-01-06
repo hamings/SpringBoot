@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dtadmin.mapper.AdminMapper">
+    <select id="selectAdmin" parameterType="HashMap" resultType="HashMap">
+        SELECT
+            id
+        FROM
+            admin
+        WHERE id = #{id} AND password = #{password}
+    </select>
+
+    <select id="selectCntMember" resultType="int">
+        SELECT COUNT(email)
+        FROM member
+    </select>
+
+    <select id="selectAmountPayment" resultType="double">
+        SELECT SUM(amount)
+        FROM payment
+    </select>
+
+    <select id="selectCntBuy" resultType="int">
+        SELECT COUNT(id)
+        FROM buy
+    </select>
+
+    <select id="selectCntContact" resultType="int">
+        SELECT COUNT(id)
+        FROM contact
+    </select>
+
+    <select id="selectMember" resultType="HashMap">
+        SELECT
+            email,
+            name,
+            phone,
+            address,
+            detail,
+            DATE_FORMAT(indate,'%Y-%m-%d %H:%i')indate
+        FROM
+            member
+    </select>
+    <select id="selectPayment" resultType="HashMap">
+        SELECT
+            id,
+            email,
+            amount,
+            uid,
+            DATE_FORMAT(indate,'%Y-%m-%d %H:%i')indate
+        FROM
+            payment
+    </select>
+
+    <select id="selectBuy" resultType="HashMap">
+        SELECT
+            id,
+            email,
+            coinId,
+            name,
+            price,
+            amount,
+            total,
+            DATE_FORMAT(indate,'%Y-%m-%d %H:%i')indate
+        FROM
+            buy
+    </select>
+    <select id="selectContact" resultType="HashMap">
+        SELECT
+            id,
+            name,
+            email,
+            phone,
+            message,
+            DATE_FORMAT(indate,'%Y-%m-%d %H:%i')indate
+        FROM
+            contact
+    </select>
+    <select id="selectSubscribe" resultType="HashMap">
+        SELECT
+            email,
+            DATE_FORMAT(indate,'%Y-%m-%d %H:%i')indate
+        FROM
+            subscribe
+    </select>
+
+</mapper>
