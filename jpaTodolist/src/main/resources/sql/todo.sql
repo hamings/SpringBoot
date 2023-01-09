@@ -1,0 +1,6 @@
+create table todo(
+    id  INT NOT NULL AUTO_INCREMENT,
+    todos VARCHAR(50) NULL,
+    indate DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
