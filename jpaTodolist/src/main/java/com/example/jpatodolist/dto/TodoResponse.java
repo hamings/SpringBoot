@@ -15,8 +15,8 @@ public class TodoResponse {
     private String todos;
 
     public TodoResponse(Todo todo){
-        this.id  = String.valueOf(id);
-        this.todos = todos;
+        this.id  = String.valueOf(todo.getId());
+        this.todos = todo.getTodos();
     }
 
 
