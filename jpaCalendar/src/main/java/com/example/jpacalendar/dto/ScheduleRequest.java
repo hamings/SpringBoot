@@ -15,7 +15,7 @@ public class ScheduleRequest {
     private String title;
     private String date;
 
-    private Schedule toEntity(){
+    public Schedule toEntity(){
         return Schedule.builder()
                 .user(User.builder().email(this.email).build())
                 .title(this.title)
