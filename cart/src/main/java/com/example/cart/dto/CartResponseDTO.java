@@ -1,7 +1,9 @@
 package com.example.cart.dto;
 
 import com.example.cart.entity.Cart;
+import lombok.Getter;
 
+@Getter
 public class CartResponseDTO {
 
     private Long cartId;

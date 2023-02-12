@@ -1,7 +1,11 @@
 package com.example.cart.dto;
 
 import com.example.cart.entity.Cart;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class CartAmountDTO {
 
     private int id;
